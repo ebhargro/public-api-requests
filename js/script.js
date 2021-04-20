@@ -32,7 +32,7 @@ fetch(link)
 
         //Create and append gallery items to the `gallery` div.
         function displayModal(data) {
-            modifyModal();
+            modifyModal(data);
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
             for (let i = 0; i <data.length; i+=1) {
@@ -59,7 +59,7 @@ fetch(link)
             }
             
         }
-        function modifyModal() {
+        function modifyModal(data) {
             let cardIndex;
             const closebtn = document.getElementById('modal-close-btn');
             const modal = document.getElementById('modal');
@@ -67,7 +67,8 @@ fetch(link)
                 card.addEventListener('click', () => {
                     cardIndex = i;
                     updateModal(data[i]);
-                    modal.hidden=false;
+                    // modal.hidden=false;
+                    document.getElementById('modal').hidden = false;
 
                 })
                 closebtn.addEventListener('click', (e) => {
