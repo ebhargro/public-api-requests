@@ -35,7 +35,8 @@ function createCards(data) {
         <div class="card">
          <div class="card-img-container"> <img class="card-img" src="${employee.picture.large}" alt="image of employee" 
          </div>
-        <div class="card-info-container"> <h3 id="name" class="card-name cap"> ${employee.name.first} ${employee.name.last} </h3>
+        <div class="card-info-container"> 
+        <h3 id="name" class="card-name cap"> ${employee.name.first} ${employee.name.last} </h3>
          <p class="card-text">${employee.email}</p> 
          <p class="card-text cap"> 
          ${employee.location.city}, 
@@ -81,23 +82,27 @@ function createCards(data) {
         `<div class="modal-container" id="modal">
              <div class="modal"> 
                 <button type="button" id="modal-close-btn"> <strong> X </strong> </button> 
-            <div class="modal-info-container" id="modal-info">
             <img class="modal-img" src="${employee.picture.large}" alt="profile picture"> 
              <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last} </h3>
-              <p class="modal-text">${employee.location.city}</p> <p class="modal-text"> ${phoneNum}</p> 
-              <p class="modal-text">${employee.location.street.number} ${employee.location.street.name} ${employee.location.city} ${employee.location.state} ${employee.location.postcode} </p>
-               <p class="modal-text"> Birth date: ${birthday} </p>
+              <p class="modal-text">${employee.location.city}</p> 
+              <p class="modal-text cap"> ${phoneNum}</p>  <hr>
+              <p class="modal-text">${employee.location.street.number} ${employee.location.street.name} ${employee.location.city} </p>
+              <p class="modal-text">${employee.location.state} ${employee.location.postcode} </p>
+              <p class="modal-text"> Birth date: ${birthday} </p>
                  </div>
-                 </div
+                 <div id="modal-info-container">
                   </div> `;
-        document.body.insertAdjacentHTML('beforeend', modalWindow);
+        gallery.insertAdjacentHTML('afterend', modalWindow);
         updateModal();
+
+const window = document.getElementById('modal');
 
     function updateModal() {
         //Adding an event listener to the X button that makes the modal window hidden
         const xButton = document.getElementById('modal-close-btn');
         xButton.addEventListener('click', () => {
-            document.getElementById('modal').style.display = 'none';
+            window.style.display = 'none';
+            window.remove();
         })
          //Resetting the display of the modal window in case this runs after X has been clicked
          document.getElementById('modal').style.display = 'inherit';
