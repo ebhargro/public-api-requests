@@ -33,7 +33,7 @@ function createCards(data) {
         // Create template literal with content to dynamically insert API data into index.HTML
         const html = `
         <div class="card">
-         <div class="card-img-container"> <img class="card-img" src="${employee.picture.large}" alt="image of employee" 
+         <div class="card-img-container"> <img class="card-img" src="${employee.picture.large}" alt="image of employee"> 
          </div>
         <div class="card-info-container"> 
         <h3 id="name" class="card-name cap"> ${employee.name.first} ${employee.name.last} </h3>
