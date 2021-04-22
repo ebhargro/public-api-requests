@@ -4,7 +4,7 @@
 
 // Setting up API link as a global variable
 
-const link = 'https://randomuser.me/api/?results=12&nat=us';
+const link = 'https://randomuser.me/api/?results=12&nat=us&lego';
 let employeeInfo;
 
 // Use Fetch to collect to Random User API
